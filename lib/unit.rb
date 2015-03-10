@@ -14,4 +14,9 @@ class Unit
   def damage(attack_power)
     @health_points -= attack_power
   end
+
+  def dead?
+    health_points == 0
+  end
+
 end

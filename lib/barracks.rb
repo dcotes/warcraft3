@@ -1,6 +1,6 @@
 class Barracks
 
-  attr_accessor :gold, :food
+  attr_accessor :gold, :food, :health_points
   # get_gold == self.gold == gold
   # set_gold == self.gold == @gold
 
@@ -15,10 +15,11 @@ class Barracks
   def initialize
     @gold = 1000 
     @food= 80
+    @health_points = 500
   end
 
   def can_train_footman?
-    gold >= 135 && food >= 2 ? true : false
+    gold >= 135 && food >= 2 
   end
 
   def train_footman
@@ -32,7 +33,7 @@ class Barracks
   end
 
   def can_train_peasant?
-    gold >= 90 && food >= 5 ? true : false
+    gold >= 90 && food >= 5 
   end
 
   def train_peasant
@@ -41,6 +42,10 @@ class Barracks
       @food -= 5
       Peasant.new
     end
+  end
+
+  def damage(attack_power)
+    @health_points -= (attack_power / 2)
   end
 
 end
