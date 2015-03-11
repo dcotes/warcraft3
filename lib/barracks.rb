@@ -49,5 +49,13 @@ class Barracks
     @health_points -= (attack_power / 2)
   end
 
+  def can_build_seige_machine?
+    gold >= 200 && food >= 3 && lumber >= 60
+  end
+
+  def build_seige_machine
+    if can_build_seige_machine? == true
+      @gold -= 
+
 end
 
